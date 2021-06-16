@@ -1,0 +1,68 @@
+<!--
+  ~ Copyright 2021 LABOR.digital
+  ~
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~     http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  ~
+  ~ Last modified: 2021.06.04 at 19:39
+  -->
+
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2020-09-09T17:27:15Z" product-name="typo3_frontend_api_example">
+		<header/>
+		
+		<body>
+			<trans-unit id="ce.demo.title">
+				<source>Demo element</source>
+			</trans-unit>
+			<trans-unit id="ce.demo.desc">
+				<source>A simple demo element that shows the basic features of the frontend api</source>
+			</trans-unit>
+			<trans-unit id="ce.demo.field.input">
+				<source>An input field</source>
+			</trans-unit>
+			<trans-unit id="ce.demo.variant.title">
+				<source>Demo element (Demo Variant)</source>
+			</trans-unit>
+			<trans-unit id="ce.demo.variant.desc">
+				<source>A variant of the Demo element to show how to create multiple elements with the same controller</source>
+			</trans-unit>
+			<trans-unit id="t.news.title">
+				<source>News</source>
+			</trans-unit>
+			<trans-unit id="t.news.field.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="t.news.field.slug">
+				<source>Slug</source>
+			</trans-unit>
+			<trans-unit id="t.news.field.teaser">
+				<source>Teaser text</source>
+			</trans-unit>
+			<trans-unit id="t.news.field.body">
+				<source>Body text</source>
+			</trans-unit>
+			<trans-unit id="t.news.field.bannerImage">
+				<source>Banner Image</source>
+			</trans-unit>
+			<trans-unit id="t.news.field.date">
+				<source>Publishing Date</source>
+			</trans-unit>
+			<trans-unit id="t.news.tab.categories">
+				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="t.news.field.categories">
+				<source>Categories</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

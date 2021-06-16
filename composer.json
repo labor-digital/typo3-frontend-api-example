@@ -1,0 +1,17 @@
+{
+	"name": "labor-digital/typo3-frontend-api-example",
+	"description": "A simple example extension for the frontend api extension",
+	"type": "typo3-cms-extension",
+	"license": "Apache-2.0",
+	"require": {},
+	"autoload": {
+		"psr-4": {
+			"LaborDigital\\T3faExample\\": "Classes"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "t3fa_example"
+		}
+	}
+}
