@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.26 at 15:40
+ * Last modified: 2021.06.26 at 17:46
  */
 
 declare(strict_types=1);
@@ -60,7 +60,6 @@ class HeaderController extends JsonContentActionController
      */
     public static function configureContentType(ContentType $type, ExtConfigContext $context): void
     {
-        $type->getTab(1)->remove();
         $type->removeChildren([
             'bodytext',
             'header_position',
@@ -69,8 +68,8 @@ class HeaderController extends JsonContentActionController
             'subheader',
             'date',
             'layout',
+            '_appearanceLinks',
             'frame_class',
-            '_header-frames',
             'categories',
             'rowDescription',
         ]);

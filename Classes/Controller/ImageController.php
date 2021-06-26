@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.26 at 15:41
+ * Last modified: 2021.06.26 at 17:48
  */
 
 declare(strict_types=1);
@@ -59,8 +59,6 @@ class ImageController extends JsonContentActionController implements
      */
     public static function configureContentType(ContentType $type, ExtConfigContext $context): void
     {
-        $type->getTab(1)->remove();
-        $type->getTab(2)->remove();
         $type->removeChildren([
             'header',
             'header_layout',
@@ -70,7 +68,9 @@ class ImageController extends JsonContentActionController implements
             'subheader',
             'date',
             '_headers',
-            'image-frames',
+            'layout',
+            '_appearanceLinks',
+            'frame_class',
             '_gallerySettings',
             '_imagelinks',
             '_mediaAdjustments',
