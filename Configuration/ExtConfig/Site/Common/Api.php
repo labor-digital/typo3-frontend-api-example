@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.23 at 12:18
+ * Last modified: 2021.06.26 at 16:13
  */
 
 declare(strict_types=1);
@@ -28,6 +28,7 @@ use LaborDigital\T3fa\ExtConfigHandler\Api\ApiConfigurator;
 use LaborDigital\T3fa\ExtConfigHandler\Api\BundleCollector;
 use LaborDigital\T3fa\ExtConfigHandler\Api\ConfigureApiInterface;
 use LaborDigital\T3fa\ExtConfigHandler\Api\Resource\ResourceCollector;
+use LaborDigital\T3faExample\Api\LayoutObject\FooterMenu;
 use LaborDigital\T3faExample\Api\LayoutObject\MainMenu;
 use LaborDigital\T3faExample\Api\LayoutObject\StaticElements;
 use LaborDigital\T3faExample\Api\Resource\NewsResource;
@@ -175,6 +176,9 @@ class Api implements ConfigureApiInterface
         // Next, we register some static content elements we want to place in our layout.
         // In a real world application this would be your fe-login form or an extension widget.
         $layout->registerObject('ce', StaticElements::class);
+        
+        // And finally, we add the footer menu as an element
+        $layout->registerObject('footerMenu', FooterMenu::class);
         
         // Moving on, we want to provide some TYPO3 translation labels for our frontend implementation.
         // Therefore T3FA provides the /api/resources/translation endpoint. It provides a compiled, json encoded

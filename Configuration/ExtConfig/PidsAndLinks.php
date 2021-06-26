@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.25 at 20:39
+ * Last modified: 2021.06.26 at 16:12
  */
 
 declare(strict_types=1);
@@ -41,6 +41,9 @@ class PidsAndLinks implements ConfigurePidsInterface, ConfigureLinksInterface, P
     public static function configurePids(PidCollector $collector, ExtConfigContext $context): void
     {
         $collector->setMultiple([
+            'menu' => [
+                'footer' => 11,
+            ],
             'storage' => [
                 'news' => 2,
                 'faq' => 17,
