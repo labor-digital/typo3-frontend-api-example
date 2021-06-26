@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.02 at 20:35
+ * Last modified: 2021.06.24 at 18:46
  */
 
 declare(strict_types=1);
@@ -29,6 +29,7 @@ use LaborDigital\T3fa\Core\Resource\Repository\Context\ResourceCollectionContext
 use LaborDigital\T3fa\Core\Resource\Repository\Context\ResourceContext;
 use LaborDigital\T3fa\Core\Resource\ResourceInterface;
 use LaborDigital\T3fa\ExtConfigHandler\Api\Resource\ResourceConfigurator;
+use LaborDigital\T3faExample\Api\Resource\PostProcessor\NewsPostProcessor;
 use LaborDigital\T3faExample\Domain\Model\News;
 use LaborDigital\T3faExample\Domain\Repository\NewsRepository;
 
@@ -59,6 +60,12 @@ class NewsResource implements ResourceInterface
         // With the mapping in place the transformation can infer the correct resource type whenever an instance
         // of the linked classes is encountered.
         $configurator->registerClass(News::class);
+        
+        // By default T3FA takes care of the transformation of your ext base entities into json objects.
+        // But you can also modify the built result by applying post processors. Those are executed for each
+        // transformed resource and are a simple way of altering the data on generation.
+        // In this example we want to add the link to each news into the record.
+        $configurator->registerPostProcessor(NewsPostProcessor::class);
     }
     
     /**

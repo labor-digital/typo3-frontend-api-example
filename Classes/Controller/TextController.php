@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.13 at 21:11
+ * Last modified: 2021.06.26 at 15:41
  */
 
 declare(strict_types=1);
@@ -26,29 +26,30 @@ namespace LaborDigital\T3faExample\Controller;
 use LaborDigital\T3ba\ExtConfig\ExtConfigContext;
 use LaborDigital\T3ba\ExtConfigHandler\ExtBase\ContentElement\ConfigureContentElementInterface;
 use LaborDigital\T3ba\ExtConfigHandler\ExtBase\ContentElement\ContentElementConfigurator;
-use LaborDigital\T3ba\Tool\BackendPreview\BackendPreviewRendererContext;
-use LaborDigital\T3ba\Tool\BackendPreview\BackendPreviewRendererInterface;
+use LaborDigital\T3ba\Tool\BackendPreview\BackendListLabelRendererInterface;
 use LaborDigital\T3ba\Tool\Tca\ContentType\Builder\ContentType;
 use LaborDigital\T3fa\Core\ContentElement\Controller\JsonContentActionController;
 use LaborDigital\T3fa\Core\ContentElement\Response\JsonResponse;
-use LaborDigital\T3faExample\EventHandler\DataHook\CeControllerDataHooks;
 
-class CeController extends JsonContentActionController implements
-    ConfigureContentElementInterface,
-    BackendPreviewRendererInterface
+/**
+ * Class TextController
+ *
+ * This class is part of a real world project to show how you can alter built in elements
+ * to match the exact needs of your client.
+ *
+ * @package LaborDigital\T3faExample\Controller
+ * @see     \LaborDigital\T3faExample\Controller\HeaderController
+ * @see     \LaborDigital\T3faExample\Controller\ImageController
+ */
+class TextController extends JsonContentActionController
+    implements ConfigureContentElementInterface, BackendListLabelRendererInterface
 {
     /**
      * @inheritDoc
      */
     public static function configureContentElement(ContentElementConfigurator $configurator, ExtConfigContext $context): void
     {
-        $configurator->replaceOtherElement('header')
-                     ->setActions(['header'])
-                     ->registerSaveHook(CeControllerDataHooks::class, 'saveHeaderHook');
-        
-        $configurator->getVariant('textMedia')
-                     ->replaceOtherElement('textmedia')
-                     ->setActions(['textMedia']);
+        $configurator->replaceOtherElement('text');
     }
     
     /**
@@ -56,32 +57,37 @@ class CeController extends JsonContentActionController implements
      */
     public static function configureContentType(ContentType $type, ExtConfigContext $context): void
     {
-        // TODO: Implement configureContentType() method.
+        $type->getTab(1)->remove();
+        $type->removeChildren([
+            'header',
+            'header_layout',
+            'header_position',
+            'header_date',
+            'header_link',
+            'header_layout',
+            'subheader',
+            'date',
+            '_headers',
+            'text-frames',
+            'categories',
+            'rowDescription',
+        ]);
     }
     
-    public function headerAction(): JsonResponse
+    public function mainAction(): JsonResponse
     {
         return $this->getJsonResponse()->withData([
-                'header' => $this->getData()['header'],
-            ]
-        );
-    }
-    
-    public function textMediaAction(): JsonResponse
-    {
-        dbge('text media!');
+            'bodyText' => $this->getData()['bodytext'],
+        ]);
     }
     
     /**
      * @inheritDoc
      */
-    public function renderBackendPreview(BackendPreviewRendererContext $context)
+    public function renderBackendListLabel(array $row, array $options): string
     {
-        return 'BE HEADER';
+        return strip_tags($row['bodytext']);
     }
     
-    public function renderTextMediaBackendPreview(BackendPreviewRendererContext $context)
-    {
-        return 'BE TEXT MEDIA';
-    }
+    
 }

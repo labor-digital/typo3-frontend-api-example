@@ -1,0 +1,3 @@
+// Remove not required default content elements
+// ===========================================================
+TCEFORM.tt_content.CType.removeItems = table, felogin_login, bullets, uploads, multimedia, mailform, search, login, textmedia, menu, shortcut, script, div, html, media, textpic, menu_abstract, menu_categorized_content, menu_categorized_pages, menu_pages, menu_recently_updated, menu_related_pages, menu_section, menu_section_pages, menu_sitemap, menu_sitemap_pages, menu_subpages, form_formframework

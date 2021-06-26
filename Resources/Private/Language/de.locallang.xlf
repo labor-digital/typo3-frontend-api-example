@@ -13,7 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~
-  ~ Last modified: 2021.06.23 at 13:12
+  ~ Last modified: 2021.06.23 at 13:13
   -->
 
 <xliff version="1.0">
@@ -23,18 +23,23 @@
 		<body>
 			<trans-unit id="frontendLabel">
 				<source>A translation for the frontend</source>
+				<target>Eine Übersetzung fürs Frontend</target>
 			</trans-unit>
 			<trans-unit id="another.label">
 				<source>Another translation for the frontend in the "another" namespace</source>
+				<target>Eine andere Übersetzung fürs Frontend im "another" Namensraum</target>
 			</trans-unit>
 			<trans-unit id="pluralizedLabel[0]">
 				<source>Pluralized label</source>
+				<target>Mehrzahl-Label</target>
 			</trans-unit>
 			<trans-unit id="pluralizedLabel[1]">
 				<source>Pluralized labels</source>
+				<target>Mehrzahlige-Labels</target>
 			</trans-unit>
 			<trans-unit id="labelWithPlaceholder">
 				<source>This has a placeholder: %s</source>
+				<target>Hier gibts einen Platzhalter: %s</target>
 			</trans-unit>
 		</body>
 	</file>

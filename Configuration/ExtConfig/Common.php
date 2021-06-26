@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.08 at 20:33
+ * Last modified: 2021.06.25 at 21:50
  */
 
 declare(strict_types=1);
@@ -28,8 +28,10 @@ use LaborDigital\T3ba\ExtConfigHandler\Core\ConfigureTypoCoreInterface;
 use LaborDigital\T3ba\ExtConfigHandler\Core\TypoCoreConfigurator;
 use LaborDigital\T3ba\ExtConfigHandler\Translation\ConfigureTranslationInterface;
 use LaborDigital\T3ba\ExtConfigHandler\Translation\TranslationConfigurator;
+use LaborDigital\T3ba\ExtConfigHandler\TypoScript\ConfigureTypoScriptInterface;
+use LaborDigital\T3ba\ExtConfigHandler\TypoScript\TypoScriptConfigurator;
 
-class Common implements ConfigureTranslationInterface, ConfigureTypoCoreInterface
+class Common implements ConfigureTranslationInterface, ConfigureTypoCoreInterface, ConfigureTypoScriptInterface
 {
     /**
      * @inheritDoc
@@ -45,8 +47,16 @@ class Common implements ConfigureTranslationInterface, ConfigureTypoCoreInterfac
     public static function configureTranslation(TranslationConfigurator $configurator, ExtConfigContext $context): void
     {
         $configurator->registerNamespace('faxBe', 'locallang_be.xlf');
-        $configurator->registerNamespace('hurBe', 'locallang_hur.xlf');
-        
     }
+    
+    /**
+     * @inheritDoc
+     */
+    public static function configureTypoScript(TypoScriptConfigurator $configurator, ExtConfigContext $context): void
+    {
+        $configurator->registerStaticTsDirectory()
+                     ->registerPageTsConfigImport();
+    }
+    
     
 }

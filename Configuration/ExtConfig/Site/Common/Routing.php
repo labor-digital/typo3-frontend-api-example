@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.04 at 17:14
+ * Last modified: 2021.06.24 at 19:20
  */
 
 declare(strict_types=1);
@@ -27,6 +27,7 @@ use LaborDigital\T3ba\ExtConfig\SiteBased\SiteConfigContext;
 use LaborDigital\T3ba\ExtConfigHandler\Routing\Site\ConfigureSiteRoutingInterface;
 use LaborDigital\T3ba\ExtConfigHandler\Routing\Site\SiteRoutingConfigurator;
 use LaborDigital\T3faExample\Configuration\Table\NewsTable;
+use LaborDigital\T3faExample\Controller\NewsController;
 
 class Routing implements ConfigureSiteRoutingInterface
 {
@@ -37,13 +38,17 @@ class Routing implements ConfigureSiteRoutingInterface
     {
         // As you can see, T3FA plays nicely alongside of the T3BA configuration options.
         // This way you have all configuration options that match a single site in a single configuration class
-        $configurator->registerValueRoute('newsDetail', '/{news}', [
-            '@pid.page.news.detail',
-        ], [
-            'dbArgs' => [
-                'news' => [NewsTable::class, 'slug'],
-            ],
-        ]);
+        $configurator->registerExtbasePlugin(
+            'newsDetail',
+            '/{news}',
+            NewsController::class, 'detail',
+            ['@pid.page.news.detail'],
+            [
+                'dbArgs' => [
+                    'news' => [NewsTable::class, 'slug'],
+                ],
+            ]
+        );
         
     }
 }

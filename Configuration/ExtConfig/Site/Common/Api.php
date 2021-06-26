@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.10 at 21:01
+ * Last modified: 2021.06.23 at 12:18
  */
 
 declare(strict_types=1);
@@ -28,6 +28,8 @@ use LaborDigital\T3fa\ExtConfigHandler\Api\ApiConfigurator;
 use LaborDigital\T3fa\ExtConfigHandler\Api\BundleCollector;
 use LaborDigital\T3fa\ExtConfigHandler\Api\ConfigureApiInterface;
 use LaborDigital\T3fa\ExtConfigHandler\Api\Resource\ResourceCollector;
+use LaborDigital\T3faExample\Api\LayoutObject\MainMenu;
+use LaborDigital\T3faExample\Api\LayoutObject\StaticElements;
 use LaborDigital\T3faExample\Api\Resource\NewsResource;
 use LaborDigital\T3faExample\Api\Resource\ProxyResource;
 use LaborDigital\T3faExample\Api\Route\TestController;
@@ -158,5 +160,26 @@ class Api implements ConfigureApiInterface
         // Additionally we want the "media" field to "slide". This means if a page does not have entries in the "media" itself,
         // TYPO3 should try to fetch the data of the parent page until it either reaches the "root" page or a value.
         $page->setDataSlideFields(['media']);
+        
+        // To create a main menu on our page we use the "layout object" feature. Layout objects are more or less "static" objects
+        // of data that you can retrieve through the /api/resources/layoutObject endpoint. They come preequipped with a host
+        // of generators for menus, language switchers, but can also render content layout content elements by id
+        // or typoScript object path.
+        $layout = $configurator->layoutObjects();
+        
+        // In our case we only want a simple object that provides us with a main menu as a first step.
+        // The key provided first, defines the id with which you can retrieve the element later.
+        // Note that this is a common config, meaning all configuration we do here, will be available on all sites.
+        $layout->registerObject('mainMenu', MainMenu::class);
+        
+        // Next, we register some static content elements we want to place in our layout.
+        // In a real world application this would be your fe-login form or an extension widget.
+        $layout->registerObject('ce', StaticElements::class);
+        
+        // Moving on, we want to provide some TYPO3 translation labels for our frontend implementation.
+        // Therefore T3FA provides the /api/resources/translation endpoint. It provides a compiled, json encoded
+        // list of translation labels, most of the common frontend translators should understand.
+        // To configure it, we simply tell the translator option which files should be included.
+        $configurator->translation()->registerLabelFile('locallang.xlf');
     }
 }

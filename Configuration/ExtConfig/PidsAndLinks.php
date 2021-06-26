@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.02 at 20:35
+ * Last modified: 2021.06.25 at 20:39
  */
 
 declare(strict_types=1);
@@ -31,6 +31,7 @@ use LaborDigital\T3ba\ExtConfigHandler\Pid\PidCollector;
 use LaborDigital\T3ba\Tool\Link\LinkService;
 use LaborDigital\T3fa\ExtConfigHandler\Api\Page\Link\PageLinkCollector;
 use LaborDigital\T3fa\ExtConfigHandler\Api\Page\Link\PageLinkProviderInterface;
+use LaborDigital\T3faExample\Controller\NewsController;
 
 class PidsAndLinks implements ConfigurePidsInterface, ConfigureLinksInterface, PageLinkProviderInterface
 {
@@ -42,8 +43,13 @@ class PidsAndLinks implements ConfigurePidsInterface, ConfigureLinksInterface, P
         $collector->setMultiple([
             'storage' => [
                 'news' => 2,
+                'faq' => 17,
             ],
             'page' => [
+                'home' => [
+                    'website' => 1,
+                    'landingPage' => 9,
+                ],
                 'news' => [
                     'list' => 5,
                     'detail' => 3,
@@ -60,6 +66,14 @@ class PidsAndLinks implements ConfigurePidsInterface, ConfigureLinksInterface, P
         // To avoid creating link definitions over and over again, you can use a "link set" using the better api extension.
         // For our example we create a "newsList" link which we want to provide in our page link list, below
         $collector->getDefinition('newsList')->setPid('@pid.page.news.list');
+        
+        // We also create a set to link on a news detail
+        $collector->getDefinition('newsDetail')
+            // The "?" means that this link set requires an argument called "news" to be set.
+                  ->addToArgs('news', '?')
+                  ->setControllerClass(NewsController::class)
+                  ->setControllerAction('detail')
+                  ->setPid('@pid.page.news.detail');
     }
     
     /**

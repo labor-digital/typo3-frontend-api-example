@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.04 at 17:40
+ * Last modified: 2021.06.25 at 20:51
  */
 
 declare(strict_types=1);
@@ -28,6 +28,8 @@ use LaborDigital\T3fa\ExtConfigHandler\Api\ApiConfigurator;
 use LaborDigital\T3fa\ExtConfigHandler\Api\BundleCollector;
 use LaborDigital\T3fa\ExtConfigHandler\Api\ConfigureApiInterface;
 use LaborDigital\T3fa\ExtConfigHandler\Api\Resource\ResourceCollector;
+use LaborDigital\T3faExample\Api\Resource\FaqItemResource;
+use LaborDigital\T3faExample\Api\Resource\FaqListResource;
 
 class Api implements ConfigureApiInterface
 {
@@ -43,7 +45,10 @@ class Api implements ConfigureApiInterface
      */
     public static function registerResources(ResourceCollector $collector, SiteConfigContext $context): void
     {
-        // @todo faq entries
+        // The faq resource is only available on the "landingpage" site.
+        // You can not retrieve them through the api on the normal site
+        $collector->register(FaqItemResource::class)
+                  ->register(FaqListResource::class);
     }
     
     /**

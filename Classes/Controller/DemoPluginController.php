@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.11 at 20:39
+ * Last modified: 2021.06.26 at 15:49
  */
 
 declare(strict_types=1);
@@ -53,9 +53,13 @@ class DemoPluginController extends BetterContentActionController implements
          * for an example on how to configure content elements instead
          */
         $configurator
+            ->setTitle('faxBe.plugin.demo.title')
+            ->setDescription('faxBe.plugin.demo.desc')
             ->setActions(['main']);
         
         $configurator->getVariant('json')
+                     ->setTitle('faxBe.plugin.demo.jsonVariant.title')
+                     ->setDescription('faxBe.plugin.demo.jsonVariant.desc')
             
             // Important note: Using setNoCacheActions() does not do anything for you here.
             // because the caching relevant options are handled by the JsonResponse object
@@ -117,7 +121,8 @@ class DemoPluginController extends BetterContentActionController implements
                     // Extbase Plugins and content elements are still able to receive get parameters
                     // so if you add ?tx_t3faexample_demopluginjson[foo]=something to your API request
                     // you can access it through the extbase request object
-                    'requestArg' => $this->request->getArgument('foo'),
+                    'requestArg' => $this->request->hasArgument('foo')
+                        ? $this->request->getArgument('foo') : null,
                 ])
                 
                 // The second way to provide information is the so called "initial state query".

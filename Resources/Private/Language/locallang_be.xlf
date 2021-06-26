@@ -13,7 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~
-  ~ Last modified: 2021.06.04 at 19:39
+  ~ Last modified: 2021.06.26 at 16:05
   -->
 
 <xliff version="1.0">
@@ -21,8 +21,47 @@
 		<header/>
 		
 		<body>
+			<trans-unit id="wizardTab.landingPage">
+				<source>Landing Page</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.title">
+				<source>News list</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.desc">
+				<source>A simple list of news articles</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.field.direction">
+				<source>Sort direction</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.field.direction.asc">
+				<source>Ascending</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.field.direction.desc">
+				<source>Descending</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.field.sortField">
+				<source>Sort-Field</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.field.sortField.date">
+				<source>Date</source>
+			</trans-unit>
+			<trans-unit id="ce.news.list.field.sortField.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="ce.news.detail.title">
+				<source>News Detail</source>
+			</trans-unit>
+			<trans-unit id="ce.news.detail.desc">
+				<source>Shows the detail view of a single news</source>
+			</trans-unit>
+			<trans-unit id="ce.restDemo.title">
+				<source>REST - Demo Element</source>
+			</trans-unit>
+			<trans-unit id="ce.restDemo.desc">
+				<source>An element that shows how to handle POST data through the API</source>
+			</trans-unit>
 			<trans-unit id="ce.demo.title">
-				<source>Demo element</source>
+				<source>Demo Element</source>
 			</trans-unit>
 			<trans-unit id="ce.demo.desc">
 				<source>A simple demo element that shows the basic features of the frontend api</source>
@@ -31,10 +70,34 @@
 				<source>An input field</source>
 			</trans-unit>
 			<trans-unit id="ce.demo.variant.title">
-				<source>Demo element (Demo Variant)</source>
+				<source>Demo Element (Demo Variant)</source>
 			</trans-unit>
 			<trans-unit id="ce.demo.variant.desc">
 				<source>A variant of the Demo element to show how to create multiple elements with the same controller</source>
+			</trans-unit>
+			<trans-unit id="ce.faqList.title">
+				<source>FAQ List</source>
+			</trans-unit>
+			<trans-unit id="ce.faqList.desc">
+				<source>Shows a list of FAQ items, ordered by the lists they show up in.</source>
+			</trans-unit>
+			<trans-unit id="ce.faqList.field.lists">
+				<source>FAQ Lists</source>
+			</trans-unit>
+			<trans-unit id="ce.header.size.h2">
+				<source>Section Headline - H2</source>
+			</trans-unit>
+			<trans-unit id="ce.header.size.h3">
+				<source>Minor Headline - H3</source>
+			</trans-unit>
+			<trans-unit id="ce.header.size.h4">
+				<source>Minor Headline - H4</source>
+			</trans-unit>
+			<trans-unit id="ce.header.size.h5">
+				<source>Minor Headline - H5</source>
+			</trans-unit>
+			<trans-unit id="ce.header.size.h6">
+				<source>Minor Headline - H6</source>
 			</trans-unit>
 			<trans-unit id="t.news.title">
 				<source>News</source>
@@ -62,6 +125,36 @@
 			</trans-unit>
 			<trans-unit id="t.news.field.categories">
 				<source>Categories</source>
+			</trans-unit>
+			<trans-unit id="t.faq.list.title">
+				<source>FAQ List</source>
+			</trans-unit>
+			<trans-unit id="t.faq.list.field.title">
+				<source>Title</source>
+			</trans-unit>
+			<trans-unit id="t.faq.list.field.items">
+				<source>Items</source>
+			</trans-unit>
+			<trans-unit id="t.faq.item.title">
+				<source>FAQ Item</source>
+			</trans-unit>
+			<trans-unit id="t.faq.item.field.question">
+				<source>Question</source>
+			</trans-unit>
+			<trans-unit id="t.faq.item.field.answer">
+				<source>Answer</source>
+			</trans-unit>
+			<trans-unit id="plugin.demo.title">
+				<source>Demo Plugin</source>
+			</trans-unit>
+			<trans-unit id="plugin.demo.desc">
+				<source>A basic example of a plugin, that renders a HTML template through FLUID</source>
+			</trans-unit>
+			<trans-unit id="plugin.demo.jsonVariant.title">
+				<source>Demo Plugin (JSON Response example)</source>
+			</trans-unit>
+			<trans-unit id="plugin.demo.jsonVariant.desc">
+				<source>A variant of the demo plugin, but which uses the special JSON response type.</source>
 			</trans-unit>
 		</body>
 	</file>

@@ -1,0 +1,5 @@
+lib.layout.element = TEXT
+lib.layout.element {
+	value = Some text
+	wrap = <p>|</p>
+}

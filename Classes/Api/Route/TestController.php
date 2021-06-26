@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.10 at 21:04
+ * Last modified: 2021.06.25 at 18:02
  */
 
 declare(strict_types=1);
@@ -23,7 +23,6 @@ declare(strict_types=1);
 namespace LaborDigital\T3faExample\Api\Route;
 
 
-use LaborDigital\T3fa\Core\Resource\Repository\ResourceRepository;
 use LaborDigital\T3fa\Core\Routing\Controller\AbstractRouteController;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -32,13 +31,15 @@ class TestController extends AbstractRouteController
 {
     public function indexAction(): ResponseInterface
     {
+        // Whenever you want to respond with a "OK" message, you can use the getJsonOkResponse
+        // factory method. It returns a application/json response containing only a "status" => "OK" body.
         return $this->getJsonOkResponse();
     }
     
     public function postAction(ServerRequestInterface $request): ResponseInterface
     {
-        $this->getService(ResourceRepository::class)->getResource('contentElement', 10);
-        
+        // Post actions get their post content using the getParsedBody() method of the request.
+        // T3FA supports most of the commonly used body serialization options out of the box.
         return $this->getJsonResponse(
             $request->getParsedBody() ?? ['data' => ['non given']]
         );
