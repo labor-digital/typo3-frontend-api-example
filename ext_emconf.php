@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.05.03 at 14:01
+ * Last modified: 2021.06.27 at 21:22
  */
 /** @var $_EXTKEY string */
 $EM_CONF[$_EXTKEY] = [
@@ -38,6 +38,8 @@ $EM_CONF[$_EXTKEY] = [
     "version" => "10.0.0",
     "constraints" => [
         "depends" => [
+            "t3ba" => "10.0.0-10.99.99",
+            "t3fa" => "10.0.0-10.99.99",
             "typo3" => "10.0.0-10.99.99",
         ],
         "conflicts" => [

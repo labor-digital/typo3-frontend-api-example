@@ -15,5 +15,6 @@
 		"typo3/cms": {
 			"extension-key": "t3fa_example"
 		}
-	}
+	},
+	"version": "10.0.0"
 }
