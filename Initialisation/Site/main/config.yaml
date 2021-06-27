@@ -1,0 +1,36 @@
+base: 'https://lab-dig-typ-fe-api.localmachine.space/'
+languages:
+  -
+    title: English
+    enabled: true
+    languageId: 0
+    base: /
+    typo3Language: default
+    locale: en_US.UTF-8
+    iso-639-1: en
+    navigationTitle: English
+    hreflang: en-us
+    direction: ltr
+    flag: us
+  -
+    title: Deutsch
+    enabled: true
+    base: 'https://de.meine-seite.de'
+    typo3Language: de
+    locale: de_DE.UTF-8
+    iso-639-1: de
+    websiteTitle: ''
+    navigationTitle: Deutsch
+    hreflang: de-DE
+    direction: ''
+    fallbackType: strict
+    fallbacks: '0'
+    flag: de
+    languageId: 1
+rootPageId: 1
+routes:
+  -
+    route: /baz
+    type: uri
+    source: 'https://www.foo.bar'
+websiteTitle: ''
