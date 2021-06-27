@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  *
- * Last modified: 2021.06.26 at 15:49
+ * Last modified: 2021.06.27 at 14:23
  */
 
 declare(strict_types=1);
@@ -53,13 +53,13 @@ class DemoPluginController extends BetterContentActionController implements
          * for an example on how to configure content elements instead
          */
         $configurator
-            ->setTitle('faxBe.plugin.demo.title')
-            ->setDescription('faxBe.plugin.demo.desc')
+            ->setTitle('faxBe.p.demo.title')
+            ->setDescription('faxBe.p.demo.desc')
             ->setActions(['main']);
         
         $configurator->getVariant('json')
-                     ->setTitle('faxBe.plugin.demo.jsonVariant.title')
-                     ->setDescription('faxBe.plugin.demo.jsonVariant.desc')
+                     ->setTitle('faxBe.p.demo.jsonVariant.title')
+                     ->setDescription('faxBe.p.demo.jsonVariant.desc')
             
             // Important note: Using setNoCacheActions() does not do anything for you here.
             // because the caching relevant options are handled by the JsonResponse object

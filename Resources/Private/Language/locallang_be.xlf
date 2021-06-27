@@ -13,7 +13,7 @@
   ~ See the License for the specific language governing permissions and
   ~ limitations under the License.
   ~
-  ~ Last modified: 2021.06.26 at 16:05
+  ~ Last modified: 2021.06.27 at 14:23
   -->
 
 <xliff version="1.0">
@@ -144,16 +144,16 @@
 			<trans-unit id="t.faq.item.field.answer">
 				<source>Answer</source>
 			</trans-unit>
-			<trans-unit id="plugin.demo.title">
+			<trans-unit id="p.demo.title">
 				<source>Demo Plugin</source>
 			</trans-unit>
-			<trans-unit id="plugin.demo.desc">
+			<trans-unit id="p.demo.desc">
 				<source>A basic example of a plugin, that renders a HTML template through FLUID</source>
 			</trans-unit>
-			<trans-unit id="plugin.demo.jsonVariant.title">
+			<trans-unit id="p.demo.jsonVariant.title">
 				<source>Demo Plugin (JSON Response example)</source>
 			</trans-unit>
-			<trans-unit id="plugin.demo.jsonVariant.desc">
+			<trans-unit id="p.demo.jsonVariant.desc">
 				<source>A variant of the demo plugin, but which uses the special JSON response type.</source>
 			</trans-unit>
 		</body>
